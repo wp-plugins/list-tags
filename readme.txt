@@ -6,12 +6,12 @@ Requires at least: 2.6.1
 Tested up to: 2.6.1
 Stable tag: trunk
 
-List Tags adds the list_tags() template tag.  It is essentially the same function as wp_list_categories,
+List Tags adds the list_tags() template tag.  It is essentially the same function as `wp_list_categories()`,
 but for tags, and as such takes the same arguments.
 
 == Description ==
 
-List Tags adds the list_tags() template tag.  It is essentially the same function as wp_list_categories,
+List Tags adds the list_tags() template tag.  It is essentially the same function as `wp_list_categories()`,
 but for tags, and as such takes the [same arguments](http://codex.wordpress.org/Template_Tags/wp_list_categories).
 
 == Installation ==
@@ -19,7 +19,7 @@ but for tags, and as such takes the [same arguments](http://codex.wordpress.org/
 1. Upload `list-tags` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php list_tags(); ?>` in your templates
-1. Configure the tag list using the arguments at http://codex.wordpress.org/Template_Tags/wp_list_categories
+1. Configure the tag list using the arguments at (http://codex.wordpress.org/Template_Tags/wp_list_categories)
 
 == Frequently Asked Questions ==
 
