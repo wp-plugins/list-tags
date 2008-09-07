@@ -11,7 +11,7 @@ but for tags, and as such takes the same arguments.
 
 == Description ==
 
-List Tags adds the list_tags() template tag.  It is essentially the same function as `wp_list_categories()`,
+List Tags adds the `list_tags()` template tag.  It is essentially the same function as `wp_list_categories()`,
 but for tags, and as such takes the [same arguments](http://codex.wordpress.org/Template_Tags/wp_list_categories).
 
 == Installation ==
