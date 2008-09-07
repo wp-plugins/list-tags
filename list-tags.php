@@ -2,7 +2,7 @@
 /*
 Plugin Name: List Tags
 Plugin URI: http://wordpress.org/extend/plugins/list-tags
-Description: Adds the list_tags() template tag.  It is essentially the same function as wp_list_categories, but for tags.
+Description: Adds the list_tags() template tag.  It is essentially the same function as wp_list_tagegories, but for tags.
 Version: 0.1
 Author: Steve Smith
 Author URI: http://www.stevesmith1983.co.uk
@@ -23,6 +23,102 @@ Author URI: http://www.stevesmith1983.co.uk
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+class Walker_Tag extends Walker {
+	var $tree_type = 'tag';
+	var $db_fields = array ('parent' => 'parent', 'id' => 'term_id'); //TODO: decouple this
+
+	function start_lvl(&$output, $depth, $args) {
+		if ( 'list' != $args['style'] )
+			return;
+
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent<ul class='children'>\n";
+	}
+
+	function end_lvl(&$output, $depth, $args) {
+		if ( 'list' != $args['style'] )
+			return;
+
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul>\n";
+	}
+
+	function start_el(&$output, $tag, $depth, $args) {
+		extract($args);
+
+		$tag_name = attribute_escape( $tag->name);
+		$tag_name = apply_filters( 'list_tags', $tag_name, $tag );
+		$link = '<a href="' . get_tag_link( $tag->term_id ) . '" ';
+		if ( $use_desc_for_title == 0 || empty($tag->description) )
+			$link .= 'title="' . sprintf(__( 'View all posts filed under %s' ), $tag_name) . '"';
+		else
+			$link .= 'title="' . attribute_escape( apply_filters( 'tag_description', $tag->description, $tag )) . '"';
+		$link .= '>';
+		$link .= $tag_name . '</a>';
+
+		if ( (! empty($feed_image)) || (! empty($feed)) ) {
+			$link .= ' ';
+
+			if ( empty($feed_image) )
+				$link .= '(';
+
+			$link .= '<a href="' . get_tag_feed_link($tag->term_id, $feed_type) . '"';
+
+			if ( empty($feed) )
+				$alt = ' alt="' . sprintf(__( 'Feed for all posts filed under %s' ), $tag_name ) . '"';
+			else {
+				$title = ' title="' . $feed . '"';
+				$alt = ' alt="' . $feed . '"';
+				$name = $feed;
+				$link .= $title;
+			}
+
+			$link .= '>';
+
+			if ( empty($feed_image) )
+				$link .= $name;
+			else
+				$link .= "<img src='$feed_image'$alt$title" . ' />';
+			$link .= '</a>';
+			if ( empty($feed_image) )
+				$link .= ')';
+		}
+
+		if ( isset($show_count) && $show_count )
+			$link .= ' (' . intval($tag->count) . ')';
+
+		if ( isset($show_date) && $show_date ) {
+			$link .= ' ' . gmdate('Y-m-d', $tag->last_update_timestamp);
+		}
+
+		if ( isset($current_tag) && $current_tag )
+			$_current_tag = get_tag( $current_tag );
+
+		if ( 'list' == $args['style'] ) {
+			$output .= "\t<li";
+			$class = 'tag-item tag-item-'.$tag->term_id;
+			if ( isset($current_tag) && $current_tag && ($tag->term_id == $current_tag) )
+				$class .=  ' current-tag';
+			elseif ( isset($_current_tag) && $_current_tag && ($tag->term_id == $_current_tag->parent) )
+				$class .=  ' current-tag-parent';
+			$output .=  ' class="'.$class.'"';
+			$output .= ">$link\n";
+		} else {
+			$output .= "\t$link<br />\n";
+		}
+	}
+}
+
+//
+// Helper functions
+//
+
+function walk_tag_tree() {
+	$walker = new Walker_Tag;
+	$args = func_get_args();
+	return call_user_func_array(array(&$walker, 'walk'), $args);
+}
 
 function list_tags($args = '') {
 	$defaults = array(
@@ -76,7 +172,7 @@ function list_tags($args = '') {
 		else
 			$depth = -1; // Flat.
 
-		$output .= walk_category_tree($tags, $depth, $r);
+		$output .= walk_tag_tree($tags, $depth, $r);
 	}
 
 	if ( $title_li && 'list' == $style )
