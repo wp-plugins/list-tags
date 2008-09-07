@@ -27,14 +27,14 @@ but for tags, and as such takes the [same arguments](http://codex.wordpress.org/
 
 = Does this work with other versions of WordPress? =
 
-Probably!  If you've got a version other than 2.6.1 and it works, let me know and I'll update the requirements.
+Probably!  If you've got a version other than 2.6.1 and it works, [let me know](http://wordpress.org/extend/plugins/list-tags/other_notes) and I'll update the requirements.
 
 = Why doesn't one of the wp_list_categories() arguments work with list_tags()? =
 
-Not all of them have been tested.  If there seems to be a problem, let me know at http://www.stevesmith1983.co.uk.
+Not all of them have been tested.  If there seems to be a problem, [let me know](http://wordpress.org/extend/plugins/list-tags/other_notes).
 
 
 == Support ==
 
-Please post any support and feedback to the [WordPress Plugins and Hacks Forum](http://wordpress.org/support/forum/10)
-and tag it with List Tags.
+Please post any support and feedback to the [WordPress Plugins and Hacks Forum](http://wordpress.org/support/forum/10).
+Make sure you tag it with [List Tags](http://wordpress.org/tags/list-tags) so that I see it!
