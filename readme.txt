@@ -32,3 +32,9 @@ Probably!  If you've got a version other than 2.6.1 and it works, let me know an
 = Why doesn't one of the wp_list_categories() arguments work with list_tags()? =
 
 Not all of them have been tested.  If there seems to be a problem, let me know at http://www.stevesmith1983.co.uk.
+
+
+== Support ==
+
+Please post any support and feedback to the [WordPress Plugins and Hacks Forum](http://wordpress.org/support/forum/10)
+and tag it with List Tags.
