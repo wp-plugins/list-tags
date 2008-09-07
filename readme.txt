@@ -6,7 +6,7 @@ Requires at least: 2.6.1
 Tested up to: 2.6.1
 Stable tag: trunk
 
-List Tags adds the list_tags() template tag.  It is essentially the same function as `wp_list_categories()`,
+List Tags adds the list_tags() template tag.  It is essentially the same function as wp_list_categories(),
 but for tags, and as such takes the same arguments.
 
 
