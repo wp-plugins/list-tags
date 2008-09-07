@@ -1,6 +1,6 @@
 === List Tags ===
 Contributors: SteveSmith1983
-Donate link: http://example.com/
+Donate link: http://www.stevesmith1983.co.uk
 Tags: tags, template
 Requires at least: 2.6.1
 Tested up to: 2.6.1

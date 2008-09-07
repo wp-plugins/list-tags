@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: List Tags
-Plugin URI: http://www.stevesmith1983.co.uk
+Plugin URI: http://wordpress.org/extend/plugins/list-tags
 Description: Adds the list_tags() template tag.  It is essentially the same function as wp_list_categories, but for tags, and as such takes the <a href="http://codex.wordpress.org/Template_Tags/wp_list_categories">same arguments</a>.
 Version: 0.1
 Author: Steve Smith
