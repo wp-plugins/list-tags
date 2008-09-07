@@ -36,5 +36,5 @@ Not all of them have been tested.  If there seems to be a problem, [let me know]
 
 == Support ==
 
-Please post any support and feedback to the [WordPress Plugins and Hacks Forum](http://wordpress.org/support/forum/10).
-Make sure you tag it with [List Tags](http://wordpress.org/tags/list-tags) so that I see it!
+Support and feedback for List Tags is available on the [WordPress Forums](http://wordpress.org/tags/list-tags).
+Make sure you tag new threads about this plugin with List Tags so that I see it!
